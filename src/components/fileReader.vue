@@ -1,8 +1,6 @@
 <template>
   <v-row class="mt-5">
-    <v-col cols="12"
-      sm="6"
-      offset-sm="3">
+    <v-col cols="12" sm="6" offset-sm="3">
       <v-card class="flex justify-center">
         <v-file-input
           color="deep-purple accent-4"
@@ -40,10 +38,12 @@ export default {
     };
   },
   methods: {
+    //método que contiene el evento change del input file
     handleFileChange(event) {
       const file = event;
+      //sólo si archivo es de tipo .txt procede con la lectura
       if (file && file.name.endsWith(".txt")) {
-        this.fileError = false;
+        //ejectura la funcion readFile
         this.readFile(file);
         this.dataLoaded = true;
       } else {
@@ -51,12 +51,17 @@ export default {
         this.fileError = true;
       }
     },
+    //recibe el archivo y lo lee
     readFile(file) {
+      //usamos el objeto fileReader para leer el contenido
       const reader = new FileReader();
+      //Un controlador para el evento load. Este evento se activa cada vez que la operación de lectura se ha completado satisfactoriamente.
       reader.onload = (event) => {
         const fileContent = event.target.result;
+        //Se eliminan los espacios en blanco.
         this.fileData = fileContent.split("\n").map((line) => line.trim());
       };
+      //El método readAsText se usa para leer el contenido de File.
       reader.readAsText(file);
     },
   },

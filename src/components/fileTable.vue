@@ -2,7 +2,7 @@
   <v-data-table
     class="table-dark mt-5"
     :headers="headers"
-    :items="formattedData"
+    :items="contentData"
   >
   </v-data-table>
 </template>
@@ -29,9 +29,10 @@ export default {
     };
   },
   computed: {
-    formattedData() {
-      // Mapea los datos originales a la estructura requerida por Vuetify V-data-table
+    contentData() {
+      // Mapea los datos originales a la estructura requerida por V-data-table
       return this.fileData.map((line) => ({
+        //si el archivo no tiene contenido, se muestra un mensaje
         line: line ? line : "Sin contenido",
       }));
     },
