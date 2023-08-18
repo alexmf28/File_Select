@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
-    "eslint": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint",
+    "lint": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
