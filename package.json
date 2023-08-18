@@ -5,15 +5,18 @@
   "scripts": {
     "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
+    "start-test": "NODE_ENV=test node app.js",
     "test": "jest",
     "eslint": "eslint './src/**/*.{js,vue}'",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test:e2e": "npx cypress run"
   },
   "dependencies": {
     "@babel/core": "^7.22.10",
     "core-js": "^3.6.5",
     "gh-pages": "^5.0.0",
     "vue": "^2.6.11",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vuetify": "^2.6.0",
     "vuex": "^3.4.0"
@@ -26,6 +29,7 @@
     "@vue/cli-plugin-router": "~4.5.13",
     "@vue/cli-plugin-vuex": "~4.5.13",
     "@vue/cli-service": "~4.5.13",
+    "@vue/test-utils": "^2.4.1",
     "babel-core": "^7.0.0-bridge.0",
     "eslint": "^8.47.0",
     "eslint-plugin-vue": "^9.17.0",
