@@ -1,7 +1,10 @@
 .DS_Store
 node_modules
 /dist
-
+cypress/plugins
+cypress/screenshots
+cypress/support
+cypress/videos
 
 # local env files
 .env.local
