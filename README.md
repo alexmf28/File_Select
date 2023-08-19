@@ -3,3 +3,8 @@
 # deployment app using CI/CD
 
 Realizando implementaciones de CI/CD con GitHub Actions
+
+Test with Jest
+
+test e2e with cypress
+
