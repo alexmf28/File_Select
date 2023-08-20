@@ -25,6 +25,7 @@ jobs:
       - name: E2E tests        
         uses: cypress-io/github-action@v2
         with:          
-          command: npm install --legacy-peer-deps; npm run test:e2e
+          command: npm run test:e2e
           start: npm run start-test
           wait-on: http://localhost:8080
+          config-file: cypress.config.js
