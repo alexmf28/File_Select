@@ -1,21 +1,27 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import HealthCheck from "../components/CI/HealthCheck.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'App',
-    component: Home
+    path: "/",
+    name: "App",
+    component: Home,
   },
-]
+  {
+    path: "/health",
+    name: "health",
+    component: HealthCheck,
+  },  
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
