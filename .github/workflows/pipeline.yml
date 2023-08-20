@@ -19,13 +19,12 @@ jobs:
       - name: Lint
         run: npm run eslint
       - name: Build
-        run: npm run build                            
-      - name: Test                      
+        run: npm run build
+      - name: Test
         run: npm test
-      - name: E2E tests        
-        uses: cypress-io/github-action@v2
-        with:          
+      - name: E2E tests
+        uses: cypress-io/github-action@v5
+        with:
           command: npm run test:e2e
           start: npm run start-test
           wait-on: http://localhost:8080
-          config-file: cypress.config.js
