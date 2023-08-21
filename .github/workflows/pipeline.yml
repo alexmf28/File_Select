@@ -3,6 +3,9 @@ name: Deployment Pipeline
 on:
   push:
     branches: ["master"]
+  pull:
+    branches: ["master"]
+    types: [opened, synchronize]
 
 jobs:
   deploy:
@@ -29,10 +32,11 @@ jobs:
           start: npm run start-test
           wait-on: http://localhost:8080
       - name: Deploy to Vercel
+        if: ${{ github.event_name == 'push' }}
         uses: amondnet/vercel-action@v20 #deploy
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN_ID }} # Required
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
-          healthcheck: "https://${{secrets.VERCEL_APP}}/health"
+          healthcheck: "https://${{secrets.VERCEL_APP}}-alexmf28.vercel.app/health"
           rollbackonhealthcheckfailed: true
